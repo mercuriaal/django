@@ -17,8 +17,38 @@
       <div class="row">
         <h1 class="col s12">Инфляция в России</h1>
         <div class="col s12 m8">
-        
-        <!-- Ваша логика -->
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                {% for title in titles %}
+                  <th> {{ title }} </th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+            {% for row in data %}
+              <tr>
+                <td> {{ row.year }} </td>
+                {% for value in row.months %}
+                  {% if value == '' %}
+                    <td>-</td>
+                  {% elif value < 0 %}
+                    <td style="background-color: green"> {{ value }} </td>
+                  {% elif value > 1 and value <= 2 %}
+                    <td style="background-color: rgb(255,192,203)"> {{ value }} </td>
+                  {% elif value > 2 and value <= 5 %}
+                    <td style="background-color: rgb(255,128,128)"> {{ value }} </td>
+                  {% elif value > 5 %}
+                    <td style="background-color: red"> {{ value }} </td>
+                  {% else %}
+                    <td> {{ value }} </td>
+                  {% endif %}
+                {% endfor %}
+                <td style="background-color: grey"> {{ row.summary }} </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
 
         </div>
       </div>

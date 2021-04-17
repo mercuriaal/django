@@ -2,6 +2,7 @@ import requests
 from django.shortcuts import render
 
 
+
 def do_request():
     resp = requests.get('https://reddit.com/r/Python/top.json',
                         headers={'User-Agent': 'Python Netology'})
