@@ -20,7 +20,7 @@ def format_date(value):
 
 
 @register.filter()
-def format_votes(value):
+def format_votes(value, default):
 
     if value:
         if value < -5:
@@ -29,6 +29,8 @@ def format_votes(value):
             return 'Нейтрально'
         elif value > 5:
             return 'Хорошо'
+    else:
+        return default
 
 
 @register.filter
