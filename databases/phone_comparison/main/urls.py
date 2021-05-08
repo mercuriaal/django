@@ -20,5 +20,5 @@ from phones.views import show_catalog
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', show_catalog)
+    path('', show_catalog, name='comparison')
 ]
