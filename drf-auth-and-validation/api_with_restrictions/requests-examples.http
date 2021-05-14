@@ -8,29 +8,30 @@ Content-Type: application/json
 # создание объявления
 POST localhost:8000/api/advertisements/
 Content-Type: application/json
-Authorization: Token 902ef055a9ac93f18327f1f9c45ab059f1a62c7d
+Authorization: Token
 
 {
-  "title": "Шкаф IKEA",
-  "description": "Срочно"
+  "title": "Продам гараж",
+  "description": "торг уместен"
 }
 
 ###
 
 # попытка поменять объявление
-PATCH localhost:8000/api/advertisements/1/
+PATCH localhost:8000/api/advertisements/3/
 Content-Type: application/json
-Authorization: Token 902ef055a9ac93f18327f1f9c45ab059f1a62c7d
+Authorization: Token
 
 {
-  "status": "CLOSED"
+  "status": "DRAFT"
 }
 
 ###
 
 # фильтрация по создателю
-GET localhost:8000/api/advertisements/?creator=3
+GET localhost:8000/api/advertisements/?creator=2
 Content-Type: application/json
+
 
 ###
 
