@@ -16,6 +16,7 @@ class CourseSerializer(serializers.ModelSerializer):
             student = data[0].id
             students_quantity = Course.objects.filter(students=student).prefetch_related('students')
             if len(students_quantity) == settings.MAX_STUDENTS_PER_COURSE:
-                raise serializers.ValidationError('Число студентов на курсе не должно превышать 20 человек')
+                raise serializers.ValidationError(f'Число студентов на курсе не должно превышать '
+                                                  f'{settings.MAX_STUDENTS_PER_COURSE} человек')
             return data
         return data
