@@ -94,7 +94,7 @@ def test_post_max_students(settings, api_client, student_factory, students_max_v
     url = reverse('courses-list')
     payload = {
         'name': 'Some_course',
-        'students': new_student.id
+        'students': [new_student.id]
     }
     response = api_client.post(url, payload)
     assert response.status_code == http_response
@@ -114,7 +114,7 @@ def test_patch_max_students(settings, api_client, course_factory, student_factor
     new_student = student_factory()
     url = reverse('courses-detail', args=[course.id])
     payload = {
-        'students': new_student.id
+        'students': [new_student.id]
     }
     response = api_client.patch(url, payload)
     assert response.status_code == http_response
